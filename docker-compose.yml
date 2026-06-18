@@ -1,0 +1,22 @@
+include:
+  - ${INCLUDE_PATH}/evolution/docker-compose.yml
+  - ${INCLUDE_PATH}/n8n/docker-compose.yml
+  - ${INCLUDE_PATH}/n8n_runners/docker-compose.yml
+  - ${INCLUDE_PATH}/pgadmin/docker-compose.yml
+  - ${INCLUDE_PATH}/redis/docker-compose.yml
+  - ${INCLUDE_PATH}/postgres/docker-compose.yml
+  - ${INCLUDE_PATH}/traefik/docker-compose.yml
+  - ${INCLUDE_PATH}/redis_insight/docker-compose.yml
+volumes:
+  postgres_data:
+  pgadmin_data:
+  evolution_redis:
+  n8n_storage:
+  evolution_instances:
+  traefik_certs:
+  redisinsight_data:
+
+networks:
+  ashesborn-n8n-net:
+    name: ashesborn-n8n-net
+    driver: bridge

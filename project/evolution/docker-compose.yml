@@ -1,0 +1,22 @@
+services:
+  evolution:
+    container_name: ashesborn-evolution
+    restart: unless-stopped
+    env_file:
+      - ../../.env
+    networks:
+      - ashesborn-n8n-net
+    image: evoapicloud/evolution-api:${EVOLUTION_VERSION}
+    environment:
+      - AUTHENTICATION_API_KEY=${EVOLUTION_AUTHENTICATION_KEY}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.evolution.rule=Host(`${TRAEFIK_EVOLUTION_SUBDOMAIN}`)
+      - traefik.http.routers.evolution.entrypoints=websecure
+      - traefik.http.routers.evolution.tls.certresolver=letsencrypt
+      - traefik.http.services.evolution.loadbalancer.server.port=8080
+    depends_on:
+      - redis
+      - postgres
+    volumes:
+      - evolution_instances:/evolution/instances
