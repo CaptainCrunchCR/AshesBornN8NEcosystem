@@ -1,0 +1,13 @@
+services:
+  cloudflared:
+    container_name: ashesborn-cloudflared
+    restart: unless-stopped
+    image: cloudflare/cloudflared:${CLOUDFLARED_VERSION}
+    command: tunnel --no-autoupdate run
+    networks:
+      - ashesborn-n8n-net
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - n8n
+      - evolution

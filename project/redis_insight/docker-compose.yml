@@ -5,6 +5,9 @@ services:
     restart: unless-stopped
     networks:
       - ashesborn-n8n-net
+    # Only reachable from the server itself; open it through an SSH tunnel.
+    ports:
+      - "127.0.0.1:5540:5540"
     volumes:
       - redisinsight_data:/data
     depends_on:

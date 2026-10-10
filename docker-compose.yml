@@ -1,11 +1,11 @@
 include:
+  - ${INCLUDE_PATH}/cloudflared/docker-compose.yml
   - ${INCLUDE_PATH}/evolution/docker-compose.yml
   - ${INCLUDE_PATH}/n8n/docker-compose.yml
   - ${INCLUDE_PATH}/n8n_runners/docker-compose.yml
   - ${INCLUDE_PATH}/pgadmin/docker-compose.yml
   - ${INCLUDE_PATH}/redis/docker-compose.yml
   - ${INCLUDE_PATH}/postgres/docker-compose.yml
-  - ${INCLUDE_PATH}/traefik/docker-compose.yml
   - ${INCLUDE_PATH}/redis_insight/docker-compose.yml
 volumes:
   postgres_data:
@@ -13,7 +13,6 @@ volumes:
   evolution_redis:
   n8n_storage:
   evolution_instances:
-  traefik_certs:
   redisinsight_data:
 
 networks:

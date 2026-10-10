@@ -20,15 +20,11 @@ services:
       - N8N_DIAGNOSTICS_ENABLED=${N8N_DIAGNOSTICS_ENABLED}
       - N8N_VERSION_NOTIFICATIONS_ENABLED=${N8N_VERSION_NOTIFICATIONS_ENABLED}
       - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}
-      - WEBHOOK_URL=${N8N_WEBHOOK_URL}
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.n8n.rule=Host(`${TRAEFIK_N8N_SUBDOMAIN}`)
-      - traefik.http.routers.n8n.entrypoints=websecure
-      - traefik.http.routers.n8n.tls.certresolver=letsencrypt
-      - traefik.http.services.n8n.loadbalancer.server.port=5678
-    links:
-      - postgres
+      - N8N_HOST=${N8N_HOSTNAME}
+      - N8N_PROTOCOL=https
+      - WEBHOOK_URL=https://${N8N_HOSTNAME}/
+      # Requests arrive through Cloudflare Tunnel, one proxy hop away.
+      - N8N_PROXY_HOPS=1
     volumes:
       - n8n_storage:/home/node/.n8n
     depends_on:

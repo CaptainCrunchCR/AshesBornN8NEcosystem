@@ -8,15 +8,17 @@ services:
       - ashesborn-n8n-net
     image: evoapicloud/evolution-api:${EVOLUTION_VERSION}
     environment:
+      - SERVER_URL=https://${EVOLUTION_HOSTNAME}
       - AUTHENTICATION_API_KEY=${EVOLUTION_AUTHENTICATION_KEY}
-    labels:
-      - traefik.enable=true
-      - traefik.http.routers.evolution.rule=Host(`${TRAEFIK_EVOLUTION_SUBDOMAIN}`)
-      - traefik.http.routers.evolution.entrypoints=websecure
-      - traefik.http.routers.evolution.tls.certresolver=letsencrypt
-      - traefik.http.services.evolution.loadbalancer.server.port=8080
+      - DATABASE_PROVIDER=postgresql
+      - DATABASE_CONNECTION_URI=postgresql://${POSTGRES_NON_ROOT_USER}:${POSTGRES_NON_ROOT_PASSWORD}@postgres:5432/${POSTGRES_EVOLUTION_DB}?schema=evolution_api
+      - CACHE_REDIS_ENABLED=true
+      - CACHE_REDIS_URI=redis://:${REDIS_PASSWORD}@redis:6379/6
+      - CACHE_LOCAL_ENABLED=false
     depends_on:
-      - redis
-      - postgres
+      redis:
+        condition: service_started
+      postgres:
+        condition: service_healthy
     volumes:
       - evolution_instances:/evolution/instances
