@@ -16,6 +16,8 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_NON_ROOT_USER=${POSTGRES_NON_ROOT_USER}
       - POSTGRES_NON_ROOT_PASSWORD=${POSTGRES_NON_ROOT_PASSWORD}
+      - POSTGRES_EVOLUTION_DB=${POSTGRES_EVOLUTION_DB}
+      - POSTGRES_CHEETO_BOT_DB=${POSTGRES_CHEETO_BOT_DB}
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ../../init-data.sh:/docker-entrypoint-initdb.d/init-data.sh

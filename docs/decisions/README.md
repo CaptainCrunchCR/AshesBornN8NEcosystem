@@ -11,6 +11,7 @@ Each significant decision gets one short, numbered file (an ADR).
 | [0002](0002-host-on-akamai-linode.md) | Host the stack on Akamai Cloud (Linode) | Accepted | 2026-10-10 |
 | [0003](0003-expose-services-via-cloudflare-tunnel.md) | Expose services through Cloudflare Tunnel | Accepted | 2026-10-10 |
 | [0004](0004-off-provider-backups-to-cloudflare-r2.md) | Back up off-provider to Cloudflare R2 | Accepted | 2026-10-10 |
+| [0005](0005-one-postgres-database-per-application.md) | One Postgres database per application | Accepted | 2026-10-10 |
 
 ## How to add one
 
