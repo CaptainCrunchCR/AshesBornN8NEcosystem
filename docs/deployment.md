@@ -113,25 +113,12 @@ terminal.
 
 ## 7. Get the code onto the server
 
-As `deploy`:
+As `deploy` (the repository is public, so no GitHub credentials are needed on the
+server; [ADR 0008](decisions/0008-public-repositories-and-separate-workflows-repo.md)):
 
 ```bash
 sudo mkdir -p /opt/ashesborn && sudo chown deploy:deploy /opt/ashesborn
-
-# Read-only deploy key for this repo
-ssh-keygen -t ed25519 -N "" -f ~/.ssh/github_deploy -C "ashesborn-prod deploy key"
-cat ~/.ssh/github_deploy.pub
-```
-
-- [ ] GitHub → `CaptainCrunchCR/AshesBornN8NEcosystem` → **Settings → Deploy keys** →
-      **Add deploy key**, paste the key, leave **write access off**.
-
-```bash
-cat >> ~/.ssh/config <<'EOF'
-Host github.com
-    IdentityFile ~/.ssh/github_deploy
-EOF
-git clone git@github.com:CaptainCrunchCR/AshesBornN8NEcosystem.git /opt/ashesborn
+git clone https://github.com/CaptainCrunchCR/AshesBornN8NEcosystem.git /opt/ashesborn
 ```
 
 ## 8. Configure secrets

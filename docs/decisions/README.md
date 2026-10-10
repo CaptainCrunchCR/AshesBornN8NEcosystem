@@ -14,6 +14,7 @@ Each significant decision gets one short, numbered file (an ADR).
 | [0005](0005-one-postgres-database-per-application.md) | One Postgres database per application | Accepted | 2026-10-10 |
 | [0006](0006-admin-uis-only-through-ssh-tunnel.md) | Admin UIs reachable only through an SSH tunnel | Accepted | 2026-10-10 |
 | [0007](0007-backup-format-and-retention.md) | Backup format and retention | Accepted | 2026-10-10 |
+| [0008](0008-public-repositories-and-separate-workflows-repo.md) | Public repositories, with workflows in their own repo | Accepted | 2026-10-10 |
 
 ## How to add one
 
