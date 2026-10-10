@@ -1,6 +1,6 @@
 # 0004. Back up off-provider to Cloudflare R2
 
-- **Status:** Accepted
+- **Status:** Accepted (details refined by [0007](0007-backup-format-and-retention.md))
 - **Date:** 2026-10-10
 - **Deciders:** Pablo Fonseca
 
