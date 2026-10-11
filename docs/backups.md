@@ -16,7 +16,7 @@ the one that counts in the worst case.
 
 | File | Contents |
 |---|---|
-| `db-<name>.dump` | Every Postgres database (n8n, Evolution, Cheeto Bot, …), discovered automatically |
+| `db-<name>.dump` | Every Postgres database (n8n, Evolution, Dialogato, …), discovered automatically |
 | `databases.txt` | Each database's owner, used to recreate it on restore |
 | `globals.sql.gz` | Postgres roles, for reference |
 | `n8n_storage.tar.gz` | n8n's data volume |
