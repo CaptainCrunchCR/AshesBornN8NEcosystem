@@ -11,12 +11,12 @@ else
     echo "SETUP INFO: No Environment variables given!"
 fi
 
-if [ -n "${POSTGRES_CHEETO_BOT_DB:-}" ]; then
-    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" <<-EOSQL
-        CREATE DATABASE ${POSTGRES_CHEETO_BOT_DB};
-        GRANT ALL PRIVILEGES ON DATABASE ${POSTGRES_CHEETO_BOT_DB} TO ${POSTGRES_NON_ROOT_USER};
-        GRANT CREATE ON SCHEMA public TO ${POSTGRES_NON_ROOT_USER};
+# Owned by the app user, so it can create tables (Postgres 15+ no longer allows that
+# on another owner's public schema).
+if [ -n "${POSTGRES_DIALOGATO_DB:-}" ] && [ -n "${POSTGRES_NON_ROOT_USER:-}" ]; then
+    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+        CREATE DATABASE ${POSTGRES_DIALOGATO_DB} OWNER ${POSTGRES_NON_ROOT_USER};
 EOSQL
 else
-    echo "SETUP INFO: No Cheeto Bot database variable given!"
+    echo "SETUP INFO: No Dialogato database variable given!"
 fi
