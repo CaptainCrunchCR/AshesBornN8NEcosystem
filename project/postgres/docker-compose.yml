@@ -1,11 +1,11 @@
 services:
   postgres:
-    container_name: ashesborn-postgres
+    container_name: dialogato-postgres
     restart: unless-stopped
     env_file:
       - ../../.env
     networks:
-      - ashesborn-n8n-net
+      - dialogato-n8n-net
     image: postgres:${POSTGRES_VERSION}
     command: [ "postgres", "-c", "max_connections=1000" ]
     expose:

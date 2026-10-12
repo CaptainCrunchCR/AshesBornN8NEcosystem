@@ -1,11 +1,11 @@
 services:
   evolution:
-    container_name: ashesborn-evolution
+    container_name: dialogato-evolution
     restart: unless-stopped
     env_file:
       - ../../.env
     networks:
-      - ashesborn-n8n-net
+      - dialogato-n8n-net
     image: evoapicloud/evolution-api:${EVOLUTION_VERSION}
     environment:
       - AUTHENTICATION_API_KEY=${EVOLUTION_AUTHENTICATION_KEY}

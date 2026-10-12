@@ -1,7 +1,7 @@
 services:
   traefik:
     image: traefik:${TRAEFIK_VERSION}
-    container_name: ashesborn-traefik
+    container_name: dialogato-traefik
     restart: unless-stopped
     command:
       - --api.insecure=false
@@ -19,4 +19,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - traefik_certs:/letsencrypt
     networks:
-      - ashesborn-n8n-net
+      - dialogato-n8n-net

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Back up the AshesBorn stack and upload it to off-provider storage (Cloudflare R2).
+# Back up the Dialogato stack and upload it to off-provider storage (Cloudflare R2).
 #
 # Creates backups/<UTC timestamp>/ with:
 #   globals.sql.gz        Postgres roles

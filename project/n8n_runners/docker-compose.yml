@@ -1,11 +1,11 @@
 services:
   n8n-runner:
-    container_name: ashesborn-n8n-runner
+    container_name: dialogato-n8n-runner
     restart: unless-stopped
     env_file:
       - ../../.env
     networks:
-      - ashesborn-n8n-net
+      - dialogato-n8n-net
     image: n8nio/runners:${N8N_VERSION}
     environment:
       - N8N_RUNNERS_AUTH_TOKEN=${RUNNERS_AUTH_TOKEN}

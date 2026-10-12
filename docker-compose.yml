@@ -17,6 +17,6 @@ volumes:
   redisinsight_data:
 
 networks:
-  ashesborn-n8n-net:
-    name: ashesborn-n8n-net
+  dialogato-n8n-net:
+    name: dialogato-n8n-net
     driver: bridge
