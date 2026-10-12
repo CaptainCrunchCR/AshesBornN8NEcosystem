@@ -1,12 +1,12 @@
 services:
   pgadmin:
-    container_name: ashesborn-pgadmin
+    container_name: dialogato-pgadmin
     restart: unless-stopped
     env_file:
       - ../../.env
     image: dpage/pgadmin4:${PGADMIN_VERSION}
     networks:
-      - ashesborn-n8n-net
+      - dialogato-n8n-net
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}

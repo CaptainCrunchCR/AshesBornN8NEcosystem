@@ -32,10 +32,10 @@ BACKUP_DIR="${BACKUP_DIR:-$(env_get BACKUP_DIR "$REPO_DIR/backups")}"
 RCLONE_IMAGE="rclone/rclone:1.75.2"
 ALPINE_IMAGE="alpine:3.24.2"
 
-POSTGRES_CONTAINER=ashesborn-postgres
-N8N_CONTAINER=ashesborn-n8n
-RUNNER_CONTAINER=ashesborn-n8n-runner
-EVOLUTION_CONTAINER=ashesborn-evolution
+POSTGRES_CONTAINER=dialogato-postgres
+N8N_CONTAINER=dialogato-n8n
+RUNNER_CONTAINER=dialogato-n8n-runner
+EVOLUTION_CONTAINER=dialogato-evolution
 
 # Volumes to archive: "container|path inside container|archive name".
 VOLUME_ARCHIVES=(

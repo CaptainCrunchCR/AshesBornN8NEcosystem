@@ -1,10 +1,10 @@
 services:
   redisinsight:
-    container_name: ashesborn-redisinsight
+    container_name: dialogato-redisinsight
     image: redis/redisinsight:${REDIS_INSIGHT_VERSION}
     restart: unless-stopped
     networks:
-      - ashesborn-n8n-net
+      - dialogato-n8n-net
     volumes:
       - redisinsight_data:/data
     depends_on:

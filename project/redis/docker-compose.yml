@@ -1,11 +1,11 @@
 services:
   redis:
-    container_name: ashesborn-redis
+    container_name: dialogato-redis
     env_file:
       - ../../.env
     image: redis:${REDIS_VERSION}
     networks:
-      - ashesborn-n8n-net
+      - dialogato-n8n-net
     command: >
       redis-server --port 6379 --appendonly yes --requirepass ${REDIS_PASSWORD}
     volumes:

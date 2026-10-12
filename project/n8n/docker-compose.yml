@@ -1,11 +1,11 @@
 services:
   n8n:
-    container_name: ashesborn-n8n
+    container_name: dialogato-n8n
     restart: unless-stopped
     env_file:
       - ../../.env
     networks:
-      - ashesborn-n8n-net
+      - dialogato-n8n-net
     image: docker.n8n.io/n8nio/n8n:${N8N_VERSION}
     environment:
       - DB_TYPE=postgresdb

@@ -36,12 +36,12 @@ and `rclone` runs in a container.
 Use a **different payment card** for Cloudflare than for the hosting provider, so one
 failed payment can't take out both the server and its backups.
 
-1. Cloudflare dashboard → **R2 Object Storage** → **Create bucket** → `ashesborn-backups`.
+1. Cloudflare dashboard → **R2 Object Storage** → **Create bucket** → `dialogato-backups`.
 2. In the bucket → **Settings → Object lifecycle rules** → add a rule for all objects:
    **delete 30 days after upload**. This is the retention policy; the script never
    deletes from R2.
 3. **R2 → Manage API tokens** → **Create API token**: **Object Read & Write**, applied
-   to the `ashesborn-backups` bucket only.
+   to the `dialogato-backups` bucket only.
 
 ### 2. Add to `.env` on the server
 
@@ -49,7 +49,7 @@ failed payment can't take out both the server and its backups.
 R2_ACCOUNT_ID=<Cloudflare account ID, on the R2 overview page>
 R2_ACCESS_KEY_ID=<from the API token>
 R2_SECRET_ACCESS_KEY=<from the API token>
-R2_BUCKET=ashesborn-backups
+R2_BUCKET=dialogato-backups
 # Optional, recommended: a free check at https://healthchecks.io with a daily schedule.
 # You get an email if a backup fails or doesn't run.
 BACKUP_HEALTHCHECK_URL=https://hc-ping.com/<uuid>
@@ -68,7 +68,7 @@ It should end with `backup complete`, and the files should appear in the bucket.
 schedule it nightly with `crontab -e` (adjust the path to where the repo lives):
 
 ```cron
-15 3 * * * /opt/ashesborn/scripts/backup.sh >> /var/log/ashesborn-backup.log 2>&1
+15 3 * * * /opt/dialogato/scripts/backup.sh >> /var/log/dialogato-backup.log 2>&1
 ```
 
 The log file must be writable by the user that owns the crontab.
