@@ -1,0 +1,7 @@
+# Handle text files automatically and force LF on checkout/commit
+* text=auto eol=lf
+
+# Explicitly flag binary files so they aren't corrupted
+*.png binary
+*.jpg binary
+*.gif binary
